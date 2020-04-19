@@ -1,0 +1,64 @@
+GC_HOME ?= .
+
+ifeq (,$(FSTAR_HOME))
+  $(error FSTAR_HOME is not defined)
+endif
+
+ifeq (,$(HACL_HOME))
+  $(error HACL_HOME is not defined)
+endif
+
+ifeq (,$(KREMLIN_HOME))
+  $(error KREMLIN_HOME is noto defined)
+endif
+
+include $(HACL_HOME)/Makefile.include
+
+SOURCE_DIRS = $(GC_HOME)/code $(GC_HOME)/specs
+
+INCLUDE_DIRS = \
+  $(SOURCE_DIRS) \
+  $(ALL_HACL_DIRS) \
+  $(FSTAR_HOME)/ulib/.cache \
+  $(KREMLIN_HOME)/kremlib \
+  $(GC_HOME)/obj
+#  $(ALL_HACL_DIRS) \
+#  $(HACL_HOME)/code/meta \
+#  $(HACL_HOME)/specs \
+#  $(HACL_HOME)/specs/lemmas \
+#  $(HACL_HOME)/lib \
+#  $(HACL_HOME)/lib/c \
+#  $(HACL_HOME)/code/curve25519 \
+#  $(KREMLIN_HOME)/runtime \
+ 
+#  $(HACL_HOME)/vale/specs/hardware \
+#  $(HACL_HOME)/vale/specs/crypto \
+#  $(HACL_HOME)/vale/specs/defs \
+#  $(HACL_HOME)/vale/specs/interop \
+#  $(HACL_HOME)/vale/specs/math \
+#  $(HACL_HOME)/vale/code/arch \
+#  $(HACL_HOME)/vale/code/arch/x64/interop \
+#  $(HACL_HOME)/vale/code/crypto \
+#  $(HACL_HOME)/vale/code/crypto/aes \
+#  $(HACL_HOME)/vale/code/crypto/bignum \
+#  $(HACL_HOME)/vale/code/crypto/ecc \
+#  $(HACL_HOME)/vale/code/crypto/poly1305 \
+#  $(HACL_HOME)/vale/code/crypto/sha \
+#  $(HACL_HOME)/vale/code/lib \
+#  $(HACL_HOME)/vale/code/lib/collections \
+#  $(HACL_HOME)/vale/code/lib/math \
+#  $(HACL_HOME)/vale/code/lib/transformers \
+#  $(HACL_HOME)/vale/code/lib/util \
+#  $(HACL_HOME)/vale/code/test \
+
+#INCLUDE_DIRS = \
+#  $(SOURCE_DIRS) \
+#  $(FSTAR_HOME)/ulib/.cache \
+#  $(KREMLIN_HOME)/kremlib \
+#  $(GC_HOME)/obj
+
+FSTAR_INCLUDES = $(addprefix --include ,$(INCLUDE_DIRS))
+
+%.fst-in %.fsti-in:
+	@echo $(FSTAR_INCLUDES)
+

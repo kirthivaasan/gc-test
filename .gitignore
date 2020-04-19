@@ -1,0 +1,6 @@
+# ignore obj/ hints/ dist/ directories
+obj/
+dist/
+hints/
+.depend
+*~
