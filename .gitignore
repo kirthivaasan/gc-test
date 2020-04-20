@@ -1,6 +1,6 @@
 # ignore obj/ hints/ dist/ directories
-obj/
-dist/
-hints/
+obj
+dist
+hints
 .depend
 *~

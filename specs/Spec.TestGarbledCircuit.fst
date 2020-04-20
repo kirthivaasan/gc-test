@@ -1,4 +1,4 @@
-module Spec.Test
+module Spec.TestGarbledCircuit
 
 module S = FStar.Seq
 

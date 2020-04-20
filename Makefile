@@ -17,7 +17,7 @@ FSTAR_EXTRACT = --extract '-* +Spec'
 
 FSTAR_NO_FLAGS = $(FSTAR_HOME)/bin/fstar.exe $(FSTAR_HINTS) \
   --odir obj --cache_checked_modules $(FSTAR_INCLUDES) --cmi \
-  --already_cached 'Prims FStar LowStar C Spec.Loops TestLib WasmSupport' --warn_error '+241@247+285' \
+  --already_cached '+Hacl +Spec +Lib +EverCrypt Prims FStar LowStar C Spec.Loops TestLib WasmSupport' --warn_error '+241@247+285' \
   --cache_dir obj --hint_dir hints \
   --z3rlimit 1000
 
